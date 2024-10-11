@@ -47,8 +47,8 @@ server.use("/register", registerRouter);
 server.use("/property", authorizeAPI, propertyRouter);
 server.use("/emailverification", emailVerificationRouter);
 server.use("/updatepassword", updatePasswordRouter);
-server.use("/user", userRouter);
-server.use("/email", emailRouter);
+server.use("/user", authorizeAPI, userRouter);
+server.use("/email",authorizeAPI, emailRouter);
 
 server.listen(port, () => {
     console.log("Server running on port: ",port);
